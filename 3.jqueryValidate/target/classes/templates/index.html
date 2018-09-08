@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/bootstrap/css/bootstrap.min.css}" href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<link th:href="@{/css/style.css}" href="../css/style.css" rel="stylesheet"/>
+    <title>FORM</title>
+    <style>
+    
+    	.head {
+    		text-align:center;
+    	}
+    	
+    	#p {
+	    	font-family: impact;
+	    	font-size:300%;
+	    	color: black;
+	    	background-color: orange;
+	    	width: 100%;
+    		height: 100px;
+	    }
+	    
+	    .vform {
+	    	text-align: left;
+	    	padding: 5px;
+	    }
+	    
+	    .my-error-class {
+		    color:#FF0000;  /* red */
+		}
+		
+		.my-valid-class {
+			   color:#00CC00; /* green */
+		}
+		
+		.submit {
+			text-align: center;
+		}
+	    
+    </style>
+</head>
+<body>
+	<div class="head">
+		<div id="p">Form Validate</div>
+	</div>
+	
+	<div class="container" style="height:800px; width:320px; overflow:hidden; margin:0 auto;">
+		<form class="vform" id="validateForm" method="get" action="">
+		  <fieldset>
+		    <p>
+		        <label for="name">Name: </label>
+		        <input id="name" name="name" minlength="2" type="text" required="ture" />(必填)
+		    </p>
+		    <p>
+		        <label for="email">E-Mail: </label>
+		        <input id="email" type="email" name="email" required="ture" />(必填)
+		    </p>
+		    <p>
+		    	<label for="cellphone">CellPhone: </label>
+		    	<input id="cellphone"  name="cellphone" minlength="10" type="text" required="ture" />(必填)
+		    </p>
+		    <p>
+			    <label for="url">URL: </label>
+			    <input id="url" type="url" name="url" />
+		    </p>
+		    <p>
+		    	<label for="gender">Gender: </label>
+		    	<input type="radio" name="gender" value="Male" />Male &nbsp;&nbsp;
+		    	<input type="radio" name="gender" value="Female" />Female
+		    </p>
+		    <p>
+		      <input class="submit" type="submit" value="Submit" />
+		    </p>
+		  </fieldset>
+		</form>
+				
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<script th:src="@{/bootstrap/js/jquery.js}" src="../bootstrap/js/jquery.js"></script>
+	<script th:src="@{/bootstrap/js/jquery-ui.min.js}" src="../bootstrap/js/jquery-ui.min.js"></script>
+	<script th:src="@{/bootstrap/js/jquery.validate.min.js}" src="../bootstrap/js/jquery.validate.min.js"></script>
+	<script th:src="@{/bootstrap/js/messages_zh_TW.js}" src="../bootstrap/js/messages_zh_TW.js"></script>
+	
+	
+</body>
+
+<script type="text/javascript">
+
+	$.validator.setDefaults({
+	    submitHandler: function() {
+	      alert("提交成功!");
+	    }
+	});
+	$().ready(function() {
+	    $("#validateForm").validate({
+	    	errorClass: "my-error-class",
+			validClass: "my-valid-class"
+	    });
+	});
+
+</script>
+</html>
